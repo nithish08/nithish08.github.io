@@ -5,24 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {% seo %}
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+      body, html {
+          margin: 0;
+          padding: 0;
+      }
+      .top-nav {
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          width: 63%; /* Adjust this width to match the .wrapper width, if different */
+          margin: auto; /* Removes top margin and centers horizontally */
+      }
+      .wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          margin-left: auto;
+          margin-right: auto;
+          width: 90%; /* Adjust this width to match the .wrapper width, if different */
+          /* Add top margin to .wrapper if needed to create space between .top-nav and .wrapper */
+          margin-top: 20px;
+      }
+      header, section {
+          width: 100%;
+      }
+  </style>
+    
+{% seo %}
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
     {% include head-custom.html %}
-    <style>
-      .n1-nav {
-          display: flex;
-          flex-direction: row;
-          align-items: flex-start;
-          width: 65%; /* Adjust this width to match the .wrapper width, if different */
-          margin: auto; /* Removes top margin and centers horizontally */
-      }
-      </style>
   </head>
   <body>
-    <div class="n1-nav">
+    <div class="top-nav">
       <a href="/index.html" style="text-decoration: underline;">Home</a>
       &nbsp;&nbsp;•&nbsp;&nbsp;
       <a href="/aboutme.html" style="text-decoration: underline;">About Me</a>
@@ -30,11 +50,10 @@
     <div class="wrapper">
       <header>
         <br> </br>
-        <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
-
-        {% if site.logo %}
+        <!-- <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1> -->
+        <!-- {% if site.logo %}
           <img src="{{site.logo | relative_url}}" alt="Logo" />
-        {% endif %}
+        {% endif %} -->
 
         <p>{{ site.description | default: site.github.project_tagline }}</p>
 
@@ -55,7 +74,8 @@
         {% endif %}
       </header>
       <section>
-
+      <br> </br>
+      <br> </br>
       {{ content }}
 
       </section>
