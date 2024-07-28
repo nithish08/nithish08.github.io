@@ -2,7 +2,7 @@
 layout: post
 title: "Cross Layers vs Fully Connected Layers"
 author: Nithish Bolleddula
-twitter_image: 
+tags: [dnn]
 ---
 
 
@@ -139,4 +139,4 @@ print(calc_metrics(crossnet))
 | Eval RMSE | 6.9e-1 |2.4e-3 | 5.3e-11 |
 
 References
-- https://www.tensorflow.org/recommenders/examples/dcn
+- [https://www.tensorflow.org/recommenders/examples/dcn](https://www.tensorflow.org/recommenders/examples/dcn)

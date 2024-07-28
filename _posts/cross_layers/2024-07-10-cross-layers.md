@@ -2,7 +2,6 @@
 layout: post
 title: "Cross Layers"
 author: Nithish Bolleddula
-twitter_image: 
 tags: [dnn, feature interaction]
 ---
 
