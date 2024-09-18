@@ -1,14 +1,61 @@
 ---
-layout: post_default
+layout: default
 ---
 
-<small>{{ page.date | date: "%-d %B %Y" }}</small>
-<h1>{{ page.title }}</h1>
+<article>
 
-<p class="view">by {{ page.author | default: site.author }}</p>
+  <h1 class="title" temprop="name">{{ page.title }}</h1>
 
-{{content}}
+  <div class="post-meta">
 
-{% if page.tags %}
-  <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
-{% endif %}
+    {% capture page_author %}
+      {% if page.author %}
+        {{page.author}}
+      {% else %}
+        Nithish
+      {% endif %}
+    {% endcapture %}
+
+    {% capture page_date %}
+      {% if page.published %}
+        {{ page.published | date: "%Y %B" }}
+      {% else %}
+        {{ page.date | date_to_long_string }}
+      {% endif %}
+    {% endcapture %}
+
+    <!-- https://www.alexrodba.com/2016/04/24/adding-minutes-to-read-to-your-jekyll-blog/ -->
+    {% capture words %}
+      {{ page.content | number_of_words | minus: 180 }}
+   {% endcapture %}
+   {% capture page_time_to_read %}
+    {% unless words contains "-" %}
+      {% assign minutes = words | plus: 180 | divided_by: 180 %}
+          {{ minutes }}
+      {% if minutes == 1 %}
+          {{ " minute to read." }}
+      {% else %}
+          {{ " minutes to read." }}
+      {% endif %}
+    {% endunless %}
+   {% endcapture %}
+
+    <span class="subtitle">{{ page_author | strip }}</span> |
+    <time datetime="{{ page_date }}">{{page_date}}</time> |
+    {{page_time_to_read}}
+  </div>
+
+  <section>
+    {% if page.notes %}
+      <div class="small">{{page.notes | markdownify }}
+        Yellow highlights/annotations are my own.
+        <a onclick="disableHighlight()" href='#'>You can disable them.</a>
+      </div>
+    {% endif %}
+    {{content}}
+  </section>
+
+    {% include footer.html %}
+
+  </div>
+</article>

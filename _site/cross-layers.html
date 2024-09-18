@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html ⚡ lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+  <meta property="og:locale" content="en_GB" />
+
+  <meta name="twitter:card" content="summary" />
+
+
+  
+
+  <meta name="twitter:image" content="https://nithish08.github.io/assets/favicon/pphoto.png"/>
+  <meta property="og:image" content="https://nithish08.github.io/assets/favicon/pphoto.png"/>
+
+  
+
+  <meta name="twitter:title" content="Cross Layers - Nithish's Blog"/>
+  <meta property="og:title" content="Cross Layers - Nithish's Blog"/>
+  <meta name="title" content="Cross Layers - Nithish's Blog"/>
+  <title>Cross Layers - Nithish's Blog</title>
+
+  
+
+  <meta name="twitter:description" content="Cross layers implementationCross layers help neural network learn explicit feature interactions. Compared to fully connected neural networks which models implicit feature interactions. We will prog...">
+  <meta name="description" content="Cross layers implementationCross layers help neural network learn explicit feature interactions. Compared to fully connected neural networks which models implicit feature interactions. We will prog...">
+  <meta property="og:description" content="Cross layers implementationCross layers help neural network learn explicit feature interactions. Compared to fully connected neural networks which models implicit feature interactions. We will prog...">
+
+
+  
+    <meta name="author" content="Nithish Bolleddula">
+    <meta property="og:type" content="article" />
+  
+
+
+  <link rel="canonical" href="http://localhost:4000/cross-layers.html">
+  <link rel="alternate" type="application/rss+xml" title="Nithish's Blog" href="http://localhost:4000/feed.xml">
+  <script type="application/ld+json">
+    
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": "http://localhost:4000/cross-layers.html",
+  "headline": "Cross Layers",
+  "datePublished": "2024-07-10T00:00:00-07:00",
+  "dateModified": "2024-07-10T00:00:00-07:00",
+  "description": "Cross layers implementation",
+  "author": {
+    "@type": "Person",
+    "name": "Nithish Bolleddula"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nithish's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:4000",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "http://localhost:4000",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+
+  <link rel="stylesheet" href="/assets/css/tufte.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/syntax-highlighting.css">
+
+  <script async>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-47062272-2', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</head>
+
+  <body>
+    <header>
+  <div class="page-links">
+    <a class="page-link" href="/">Home</a>
+    
+    
+      
+    
+      
+    
+      
+      • <a class="page-link" href="/posts/">All Posts</a>
+      
+    
+      
+      • <a class="page-link" href="/about/">About Me</a>
+      
+    
+    • <a class="page-link" onclick="toggleDarkMode()" href='#'>Toggle Dark Mode</a>
+  </div>
+</header>
+
+
+    <article>
+
+  <h1 class="title" temprop="name">Cross Layers</h1>
+
+  <div class="post-meta">
+
+    
+
+    
+
+    <!-- https://www.alexrodba.com/2016/04/24/adding-minutes-to-read-to-your-jekyll-blog/ -->
+    
+   
+
+    <span class="subtitle">Nithish</span> |
+    <time datetime="
+      
+        10 July 2024
+      
+    ">
+      
+        10 July 2024
+      
+    </time> |
+    
+    
+      
+          2
+      
+           minutes to read.
+      
+    
+   
+  </div>
+
+  <section>
+    
+    <h1 id="cross-layers-implementation">Cross layers implementation</h1>
+
+<p>Cross layers help neural network learn explicit feature interactions. Compared to fully connected neural networks which models implicit feature interactions. We will program the cross layer using tensorflow and PyTorch in this blog and demonstrate it’s capability.</p>
+
+<p>Cross layer implementation -</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">CrossLayer</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">Layer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">units</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">(</span><span class="n">CrossLayer</span><span class="p">,</span> <span class="n">self</span><span class="p">).</span><span class="nf">__init__</span><span class="p">()</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">dense_layer</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="nc">Dense</span><span class="p">(</span><span class="n">units</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">prev_x</span><span class="p">,</span> <span class="n">init_x</span><span class="p">):</span>
+        <span class="c1"># performs
+</span>        <span class="c1"># init_x . (w @ prev_x + b) + prev_x
+</span>        <span class="c1"># . -&gt; element wise multiplication
+</span>        <span class="c1"># @ -&gt; matrix multiplication
+</span>        <span class="c1"># b is the bias unit
+</span>        <span class="k">return</span> <span class="n">init_x</span> <span class="o">*</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="nf">dense_layer</span><span class="p">(</span><span class="n">prev_x</span><span class="p">))</span> <span class="o">+</span> <span class="n">prev_x</span>
+</code></pre></div></div>
+
+<p>Multiple cross layers can be stacked into a single model like this -</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">CrossLayersStackedModel</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">num_features</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">num_layers</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">(</span><span class="n">CrossModel1</span><span class="p">,</span> <span class="n">self</span><span class="p">).</span><span class="nf">__init__</span><span class="p">()</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">num_features</span> <span class="o">=</span> <span class="n">num_features</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">cross_layers</span> <span class="o">=</span> <span class="p">[</span><span class="nc">CrossLayer</span><span class="p">(</span><span class="n">num_features</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">num_layers</span><span class="p">)]</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">dense</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="nc">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># output layer for regression problem
+</span>    
+    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">init_x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="n">prev_x</span> <span class="o">=</span> <span class="n">x</span> <span class="c1"># does it make a copy?
+</span>        <span class="k">for</span> <span class="n">cross_layer</span> <span class="ow">in</span> <span class="n">self</span><span class="p">.</span><span class="n">cross_layers</span><span class="p">:</span>
+            <span class="n">prev_x</span> <span class="o">=</span> <span class="nf">cross_layer</span><span class="p">(</span><span class="n">prev_x</span><span class="p">,</span> <span class="n">init_x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="nf">dense</span><span class="p">(</span><span class="n">prev_x</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="comparison-with-fully-connected-network">Comparison with fully connected network</h1>
+
+<p>Let’s say we are trying to model y, which depends on three features x_1, x_2 and x_3</p>
+
+\[y = x_1^2 + x_1 \cdot x_2 + x_2 \cdot x_3 + x_3^2\]
+
+<h2 id="metric-comparison">Metric Comparison</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Mean Predictor</th>
+      <th>Deepnet</th>
+      <th>Crossnet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Number of Parameters</td>
+      <td>0</td>
+      <td>40</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>Train RMSE</td>
+      <td>6.9e-1</td>
+      <td>2.4e-3</td>
+      <td>5.5e-11</td>
+    </tr>
+    <tr>
+      <td>Eval RMSE</td>
+      <td>6.9e-1</td>
+      <td>2.4e-3</td>
+      <td>5.3e-11</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Full Notebook - <a href="/comparison.html">link</a></p>
+
+  </section>
+
+    <footer class="site-footer">
+	<script type="text/x-mathjax-config"> 
+		MathJax.Hub.Config({
+			styles: {
+				".MathJax_Display": {width: '55% ! important'}
+			},
+			tex2jax: {
+				inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+				displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+				processEscapes: true
+			},
+		});
+	</script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	<script type="text/javascript" src="/assets/site.js"></script>
+   <!-- <section class="copyright">All content copyright <a href="mailto:nithish.bhu@gmail.com">Nithish Bolleddula</a> &copy; 2024 &bull; All rights reserved.</section> -->
+</footer>
+
+
+  </div>
+</article>
+
+  </body>
+</html>

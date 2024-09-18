@@ -1,7 +1,21 @@
 title: Nithish's Blog
-logo: /assets/img/logo.png
-description: " "
-show_downloads: false
-google_analytics:
-theme: jekyll-theme-minimal
-author: Nithish Bolleddula
+description: >
+  I write mostly about AI and software engineering.
+url: "/"
+paginate:	5 # The number of posts to show per page on your homepage
+name: "Nithish Bolleddula"
+email: 'nithish.bhu@gmail.com'
+markdown: kramdown
+twitter_image: assets/favicon/pphoto.png
+permalink: none
+kramdown:
+  parse_block_html: true
+plugins: [jekyll-paginate]
+gems:
+  - jekyll-paginate
+  - jekyll-compose
+  - jekyll-sass-converter
+  - jekyll-textile-converter
+long_description: >
+  I write about artificial intelligence (AI), technology, books, languages and some time random stuff.
+real_url: https://nithish08.github.io

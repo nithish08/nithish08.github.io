@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Nithish Bolleddula</title>
+		<description>I write mostly about AI and software engineering.
+</description>		
+		<link>http://localhost:4000</link>
+		<atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Cross Layers</title>
+				<description>Cross layers implementationCross layers help neural network learn explicit feature interactions. Compared to fully connected neural networks which models implicit feature interactions. We will program the cross layer using tensorflow and PyTorch i...</description>
+				<pubDate>Wed, 10 Jul 2024 00:00:00 -0700</pubDate>
+				<link>http://localhost:4000/cross-layers.html</link>
+				<guid isPermaLink="true">http://localhost:4000/cross-layers.html</guid>
+			</item>
+		
+			<item>
+				<title>Cross Layers vs Fully Connected Layers</title>
+				<description>Generate Datasetimport numpy as npimport tensorflow as tfSEED = 42tf.random.set_seed(SEED)np.random.seed(SEED)def get_random_X_y_data(data_size=100_000):      # data_size       # number of features = 3       X = np.random.randint(200, size=[data_s...</description>
+				<pubDate>Wed, 10 Jul 2024 00:00:00 -0700</pubDate>
+				<link>http://localhost:4000/comparison.html</link>
+				<guid isPermaLink="true">http://localhost:4000/comparison.html</guid>
+			</item>
+		
+	</channel>
+</rss>
