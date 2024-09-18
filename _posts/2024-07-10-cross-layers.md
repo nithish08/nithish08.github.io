@@ -7,7 +7,7 @@ title: Cross Layers
 # Cross layers implementation
 
 
-Cross layers help neural network learn explicit feature interactions. Compared to fully connected neural networks which models implicit feature interactions. We will program the cross layer using tensorflow and PyTorch in this blog and demonstrate it's capability.
+Cross layers help neural network learn explicit feature interactions. Compared to fully connected neural networks which models implicit feature interactions. We will program the cross layer using PyTorch in this blog and demonstrate it's capability.
 
 Cross layer implementation - 
 

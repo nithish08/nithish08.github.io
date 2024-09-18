@@ -124,9 +124,9 @@ print(calc_metrics(deepnet))
 print(calc_metrics(crossnet))
 ```
 
-    baseline 0.689292448648356 0.688865395052829
-    (0.4751493036746979, 0.4744740128517151)
-    (3.974694706698756e-08, 4.0458154160205595e-08)
+    baseline - 0.6893 0.6889
+    deepnet  - (0.4751, 0.4745)
+    crossnet - (3.9747e-08, 4.0458e-08)
 
 
 # Comparison 
